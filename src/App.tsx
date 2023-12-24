@@ -1,5 +1,6 @@
 import "swiper/css";
-import { Pagination, Mousewheel } from "swiper/modules";
+import "swiper/css/effect-cube";
+import { Pagination, Mousewheel, EffectCube } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SlideNextButton } from "./components/SlideNextButton.tsx";
 import { SlidePrevButton } from "./components/SlidePrevButton.tsx";
@@ -18,10 +19,11 @@ function App() {
         pagination={{
           type: "fraction",
         }}
-        modules={[Pagination, Mousewheel]}
+        modules={[Pagination, Mousewheel, EffectCube]}
+        effect="cube"
       >
         {data.map((d) => (
-          <SwiperSlide>
+          <SwiperSlide key={d}>
             <div style={{ background: "grey", height: "300px" }}>{d}</div>
           </SwiperSlide>
         ))}
