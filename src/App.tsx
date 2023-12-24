@@ -14,7 +14,7 @@ function App() {
       >
         {data.map((d) => (
           <SwiperSlide>
-            <div style={{ background: "grey" }}>{d}</div>
+            <div style={{ background: "grey", height: "300px" }}>{d}</div>
           </SwiperSlide>
         ))}
       </Swiper>
