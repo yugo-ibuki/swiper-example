@@ -11,7 +11,8 @@ function App() {
     <>
       <Swiper
         spaceBetween={50}
-        slidesPerView={3}
+        centeredSlides={true}
+        slidesPerView={2}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
         pagination={{
