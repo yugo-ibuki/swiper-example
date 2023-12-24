@@ -1,5 +1,5 @@
 import "swiper/css";
-import { Pagination } from "swiper/modules";
+import { Pagination, Mousewheel } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SlideNextButton } from "./components/SlideNextButton.tsx";
 import { SlidePrevButton } from "./components/SlidePrevButton.tsx";
@@ -18,7 +18,7 @@ function App() {
         pagination={{
           type: "fraction",
         }}
-        modules={[Pagination]}
+        modules={[Pagination, Mousewheel]}
       >
         {data.map((d) => (
           <SwiperSlide>
