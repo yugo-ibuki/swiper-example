@@ -1,17 +1,33 @@
 import "swiper/css";
-import "swiper/css/effect-cube";
-import { Pagination, Mousewheel, EffectCube } from "swiper/modules";
+import "swiper/css/bundle";
+import { Pagination, Mousewheel, Parallax } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SlideNextButton } from "./components/SlideNextButton.tsx";
 import { SlidePrevButton } from "./components/SlidePrevButton.tsx";
 
-const data: string[] = ["Slide 1", "Slide 2", "Slide 3", "Slide 4"];
+const data: { title: string; img: string }[] = [
+  {
+    title: "Slide 1",
+    img: "/1.jpeg",
+  },
+  {
+    title: "Slide 2",
+    img: "/2.jpeg",
+  },
+  {
+    title: "Slide 3",
+    img: "/3.jpeg",
+  },
+  {
+    title: "Slide 4",
+    img: "/4.jpeg",
+  },
+];
 
 function App() {
   return (
     <>
       <Swiper
-        spaceBetween={50}
         centeredSlides={true}
         slidesPerView={2}
         onSlideChange={() => console.log("slide change")}
@@ -19,12 +35,29 @@ function App() {
         pagination={{
           type: "fraction",
         }}
-        modules={[Pagination, Mousewheel, EffectCube]}
-        effect="cube"
+        modules={[Pagination, Mousewheel, Parallax]}
+        parallax
       >
         {data.map((d) => (
-          <SwiperSlide key={d}>
-            <div style={{ background: "grey", height: "300px" }}>{d}</div>
+          <SwiperSlide key={d.title}>
+            <div
+              style={{
+                backgroundImage: `url(${d.img})`,
+                backgroundSize: "cover",
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "0",
+                objectFit: "contain",
+                height: "300px",
+                width: "100%",
+              }}
+            >
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab
+              aliquam animi nihil, optio perspiciatis quos sequi vitae. Adipisci
+              animi atque eos et laboriosam magni natus vel? Autem consequuntur
+              cum dolores eius impedit modi nobis optio sit sunt, unde? Atque
+              dolor esse fuga minus quibusdam quis rem sapiente suscipit
+              voluptatem voluptates?
+            </div>
           </SwiperSlide>
         ))}
         <div>
